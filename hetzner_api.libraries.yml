@@ -1,0 +1,7 @@
+refresh:
+  version: 1.x
+  js:
+    js/refresh.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

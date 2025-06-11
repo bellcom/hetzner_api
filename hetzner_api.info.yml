@@ -1,0 +1,9 @@
+name: 'Hetzner API'
+type: module
+description: 'Henter server data fra Hetzner API og gemmer som nodes'
+core_version_requirement: ^11
+package: Custom
+dependencies:
+  - drupal:node
+  - drupal:field
+  - drupal:views

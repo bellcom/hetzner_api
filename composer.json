@@ -1,0 +1,10 @@
+{
+  "name": "bellcom/hetzner_api",
+  "description": "Drupal 11 module to sync Hetzner Cloud servers to nodes",
+  "type": "drupal-module",
+  "license": "GPL-2.0-or-later",
+  "minimum-stability": "dev",
+  "require": {
+    "drupal/core": "^11"
+  }
+}

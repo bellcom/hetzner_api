@@ -1,0 +1,15 @@
+hetzner_api.servers:
+  path: '/hetzner/servers'
+  defaults:
+    _controller: '\Drupal\hetzner_api\Controller\HetznerController::getServers'
+    _title: 'Hetzner Servers'
+  requirements:
+    _permission: 'access content'
+
+hetzner_api.sync:
+  path: '/admin/config/services/hetzner-api/sync'
+  defaults:
+    _controller: '\Drupal\hetzner_api\Controller\HetznerController::manualSync'
+    _title: 'Synkroniser Hetzner servere'
+  requirements:
+    _permission: 'administer site configuration'
