@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\node\Entity\NodeType;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\field\Entity\FieldConfig;
+
+/**
+ * Implements hook_install().
+ */
+function hetzner_api_install() {
+  if (!NodeType::load('hetzner_server')) {
+    $type = NodeType::create([
+      'type' => 'hetzner_server',
+      'name' => 'Hetzner Server',
+      'description' => 'Synkroniseret server fra Hetzner Cloud',
+    ]);
+    $type->save();
+  }
+
+  $fields = [
+    'field_server_id' => ['label' => 'Server ID', 'type' => 'string'],
+    'field_status' => ['label' => 'Status', 'type' => 'string'],
+    'field_ipv4' => ['label' => 'IPv4', 'type' => 'string'],
+    'field_location' => ['label' => 'Location', 'type' => 'string'],
+    'field_specs' => ['label' => 'Specs', 'type' => 'string'],
+  ];
+
+  foreach ($fields as $field_name => $info) {
+    if (!FieldStorageConfig::loadByName('node', $field_name)) {
+      FieldStorageConfig::create([
+        'field_name' => $field_name,
+        'entity_type' => 'node',
+        'type' => $info['type'],
+      ])->save();
+
+      FieldConfig::create([
+        'field_name' => $field_name,
+        'entity_type' => 'node',
+        'bundle' => 'hetzner_server',
+        'label' => $info['label'],
+      ])->save();
+    }
+  }
+}

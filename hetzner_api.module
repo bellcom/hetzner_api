@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * Implements hook_cron().
+ */
+function hetzner_api_cron() {
+  \Drupal::service('hetzner_api.api')->syncServersToNodes(TRUE);
+}

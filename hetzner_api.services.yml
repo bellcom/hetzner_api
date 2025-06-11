@@ -1,0 +1,4 @@
+services:
+  hetzner_api.api:
+    class: Drupal\hetzner_api\Service\HetznerApiService
+    arguments: ['@http_client', '@config.factory']
