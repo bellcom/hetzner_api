@@ -1,3 +1,11 @@
+hetzner_api.settings:
+  path: '/admin/config/services/hetzner-api'
+  defaults:
+    _form: '\Drupal\hetzner_api\Form\HetznerSettingsForm'
+    _title: 'Hetzner API-indstillinger'
+  requirements:
+    _permission: 'administer site configuration'
+
 hetzner_api.servers:
   path: '/hetzner/servers'
   defaults:
